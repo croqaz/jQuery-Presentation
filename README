@@ -1,0 +1,10 @@
+
+My jQuery Presentation
+
+Install `Node.js`;
+
+Run `npm install`;
+
+Run `./build`;
+
+Open the generated file `prez.html`;
