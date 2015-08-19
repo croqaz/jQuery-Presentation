@@ -1,0 +1,974 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css')
+    title jQuery Prezy
+  body
+
+    // Button to jump to 1
+    button.btn-position(style="left:0.5rem;right:auto;" title="First slide" onclick="deck.slide(0);") o&#8606;
+    // Button to jump to -1
+    button.btn-position(style="left:auto;right:0.5rem;" title="Last slide" onclick="deck.slide(deck.slides.length-1);") &#8608;&#8734;
+    // The page number
+    span#txt-position
+
+    article#presentation
+
+      section(data-bespoke-hash="index")
+        hr/
+        hr/
+        hr/
+        h1(style="color:#031634;") jQuery Prezy
+        hr/
+        hr/
+        hr/
+        h2 by Cristi Constantin
+
+
+      section
+        h1 Hello
+        hr/
+        h1 Let's meet
+        hr/
+        h1 . . .
+
+
+      section.bg-white
+        h1 &#8759; Intro
+
+
+      section
+        hr/
+        ul.ul-expanded
+          li web applications have moved the logic in the client (the browser)
+          li there are more and more single page applications
+          li HTML5 allows viewing movies, listening to music, finding location, storing data offline, web-sockets and more
+          li servers become simple web services, that expose a simple API to the client
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="http://www.w3.org/TR/html5-diff" target="_blank") www.w3.org/TR/html5-diff
+
+
+      section
+        hr/
+        ul.ul-expanded
+          li today's web development is a chaos, because of the huge number of browsers and devices
+          li we have: Internet Explorer, Firefox, Chrome, Opera, Safari, and other WebKit based...
+          li.bullet there are almost 19,000 different kinds of Android devices in use
+          li.bullet(style="color:#F26139;font-size:20px;") jQuery helps untangle the web !
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="http://bgr.com/2014/08/22/opensignal-android-fragmentation-report" target="_blank") bgr.com/2014/08/22/opensignal-android-fragmentation-report
+          br/
+          small
+            a(href="http://www.impressivewebs.com/buggy-css-selectors-cross-browser-jquery" target="_blank") www.impressivewebs.com/buggy-css-selectors-cross-browser-jquery
+
+
+      section
+        h2 Summary #1
+        ol
+          li(value='1') What is jQuery
+          li Who uses it
+          li Why do they use it
+          li Features
+          li Advantages to pure .Js
+          li What is DOM
+          li How to debug
+          li Your first jQuery page
+          li On document ready
+          li Selecting elements
+          li Events
+
+
+      section
+        h2 Summary #2
+        ol
+          li(value='12') Manipulate
+          li Styles
+          li Effects and animations
+          li Utils
+          li Connect to web services
+          li Promises
+          li UI : jQuery-UI & Bootstrap
+          li Useful plugins
+          li Creating a plugin
+          li Unit Testing
+          li Underscore, Backbone
+
+
+      section
+        h1 What is...?
+        hr/
+        ul.ul-expanded
+          li is a <b>Javascript</b> library
+          li it's free and open source
+          li started by <b>John Resig</b>, an american software engineer
+          li jquery.org/team : 13 + 24 developers
+
+
+      section
+        h2 Short history
+        ul.ul-packed(style="color:#999")
+          li(style="color:#000") 2005 - first concepts
+          li june 2006 - first 1.0 alpha
+          li 2007 sept - jQuery UI, jquery v 1.2
+          li(style="color:#000") 2008 sept - Microsoft and Nokia announce their support for jQuery
+          li 2009 jan - version 1.3
+          li 2010 jan - version 1.4
+          li 2010 oct - version 1.5
+          li 2011 may - version 1.6
+          li 2011 nov - version 1.7
+          li 2012 aug - version 1.8
+          li 2013 ian - version 1.9, 1.10 & 2.0 beta
+          li(style="color:#000") 2014 ian - version 1.11 & 2.1
+
+
+      section
+        h1 Who uses this...?
+        hr/
+        hr/
+        h3(style="line-height:3rem;") Google, Microsoft, IBM, Intel, Adobe, Yahoo, Tumblr, Wordpress, Foursquare, Msn, Hulu, Rdio, Netflix, Github, Bitbucket, Delicious, Basecamp, Disqus, Jolicloud ...
+        hr/
+        h3(style="color:#F26139;") You got the point... It's basically everyone...
+
+
+      section
+        h1 Why use it...?
+        hr/
+        ol
+          li jQuery is the industry standard for DOM manipulation
+          li probably the most popular Javascript library EVER
+          li it's free and open source
+          li very simple to use, compared to plain Javascript
+          li less code to write, pages might load faster
+          li consistent across browsers and well tested
+          li jQuery and friends will replace Flash
+          li a lot of plugins available
+          li even works with Internet Explorer 6 !!
+
+
+      section
+        h1 What it does
+        hr/
+        ol
+          li.bullet jQuery finds elements
+          li.bullet reads and changes HTML and CSS content
+          li.bullet creates new elements
+          li.bullet deletes existing elements
+          li.bullet listens to user events (click, mouse move, key press)
+          li.bullet animates content
+          li.bullet sends and receives data over network
+          li.bullet nice utilities
+          li.bullet jQuery does this CONSISTENTLY, for all browsers
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="https://api.jquery.com" target="_blank") https://api.jquery.com
+
+
+      section
+        h2 Differences, compared to pure Js
+        hr/
+        h4 The good
+        hr/
+        ul.ul-expanded
+          li jQuery is a set of JavaScript functions, designed to simplify HTML document traversing, animation, event handling and Ajax interactions
+          li optimized to perform many common scripting functions, while using fewer lines of code
+          li optimized to work with a variety of browsers, automatically
+          li lots and lots of plugins, to make the development even more easy
+
+
+      section
+        h2 Differences, compared to pure Js
+        hr/
+        h4(style="color:#F26139;") The bad
+        hr/
+        ul.ul-expanded
+          li in some cases, jQuery might be slower
+          li large jQuery programs tend to look incredibly complicated - there are solutions for this
+          li if you are a very good programmer and design something exactly tailored to your needs, you should achieve better performance with pure Javascript, than if you used jQuery
+          li there is a lighter version, optimized for mobile: Zepto.js
+
+
+      section.bg-white
+        h1 &#8759; DOM
+
+
+      section
+        h2 HTML structure
+        hr/
+        hr/
+        h3(style="line-height:2.5rem;")
+          | Any HTML page is actually
+          br/
+          | an XML document, that points to :
+        ul
+          li 1 or more CSS files
+          li 1 or more Javascript files
+          li images, movies, music
+          li other "non-standard" elements
+          li what is "DOM" ?
+          li how is a page loaded ?
+
+
+      section.bg-white
+        h2 DOM Structure
+        hr/
+        img(src='img/DOM.png', style="width:340px;height:auto;")
+
+
+      section.bg-white
+        img(src="img/debugging.png" style="width:80px;height:auto;position:absolute;top:10rem;left:50%;right:auto;margin-left:-45px;")
+        h1 &#8759; Debug
+
+
+      section
+        h1 Debug in Firefox
+        hr/
+        img(src="img/debug-ff.png", style="width:720px;height:auto;")
+        hr/
+        hr/
+        h3 Press `F12` to open the debug console ;
+
+
+      section
+        h1 Debug in Chrome
+        hr/
+        img(src="img/debug-chr.png", style="width:720px;height:auto;")
+        hr/
+        hr/
+        h3 Press `F12` to open the debug console ;
+
+
+      section.bg-white
+        h1 &#8759; Let's begin
+
+
+      section
+        h1 Using jQuery
+        hr/
+        hr/
+        ol.ul-expanded
+          li go to &nbsp;
+            a(href="https://jquery.com/download" target="_blank") jquery.com/download
+          li when you develop, please use the development version
+          li for production, download the compressed (min) version
+
+
+      section
+        h1 Strategy
+        hr/
+        hr/
+        ol.ul-expanded
+          li.bullet wait for the <b>page</b> to be completely <b>loaded</b>, or, if it's already loaded, skip this
+          li.bullet <b>select</b> some elements from the page
+          li.bullet <b>attach</b> events on selected elements, &nbsp; or <b>manipulate</b> the elements directly
+          li.bullet enjoy and have a great time &nbsp;&#9786;
+
+
+      section.bg-white
+        h1 &#8759; Step #1
+        hr/
+        h3 (wait for page to be loaded)
+
+
+      section
+        h1 On document ready
+        hr/
+        hr/
+        ul.ul-expanded
+          li in order to modify the elements with success in all browsers, you MUST do it when the DOM is loaded ;
+          li document ready != window.onload() ;
+
+
+      section
+        h1 On document ready
+        hr/
+        pre(style="width:760px;font-size:16px;")
+          code.language-markup.
+            &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;
+            &lt;/script&gt;
+
+            &lt;script&gt;
+            jQuery(document).ready(function() {
+              // jQuery methods go here ...
+            });
+
+            // Or, the shortcut function
+            $(function() {
+              // jQuery methods go here ...
+            });
+            &lt;/script&gt;
+
+
+      section.bg-white
+        h1 &#8759; Step #2
+        hr/
+        h3 (select elements)
+
+
+      section
+        h1 Select overview
+        ul
+          li selecting arbitrary elements from a page is the most powerful feature of jQuery
+          li the Sizzle selector represents 25% of jQuery code
+          li inspired by CSS3 selectors
+          li you can select an ID, a class, or a type
+          li by name (==, ^=, $=, !=, ~, *)
+          li by disabled, enabled, empty, hidden, visible, or checked
+          li even, or odd
+          li first, or last
+          li first child, or last child
+          li by text
+
+
+      section
+        h1 Selecting elements #1
+        ul
+          li $("p") -- by type (all paragraphs)
+          li $("#some_id") -- by ID
+          li $(".some_class") -- by class
+          li $("input[type=radio]")   -- by attribute (radio input types)
+          li $("input[name!=submit]") -- inverted attribute
+          li $("input[value^=test]")  -- begins with string
+          li $("input[value$=test]")  -- ends with string
+          li $("input[value~=test]")  -- if contains the word
+          li $("input[value*=test]")  -- if contains a string
+          li $("button:disabled")    -- by disabled
+          li $("button:enabled")     -- by enabled
+          li $("input:checked")      -- by checked
+
+
+      section
+        h1 Selecting elements #2
+        hr/
+        ul
+          li $("div:empty") -- by empty (all empty divs)
+          li $("li:even") -- by even elements
+          li $("li:odd") -- by odd elements
+          li $(".some_class:first") -- first element
+          li $(".some_class:last")  -- last element
+          li $(".some_class:first-child") -- first child
+          li $(".some_class:last-child")  -- last child
+          li $("p:contains('text')") -- by text inside
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="https://api.jquery.com/category/selectors" target="_blank") https://api.jquery.com/category/selectors
+
+
+      section
+        h1 Select - Examples
+        hr/
+        pre
+          code.language-javascript.
+            console.log( $("#some_element") );
+            console.log( $(".class1") );
+            console.log( $(".parent1 > .child1") );
+            console.log( $(".elem1 .sub-elem1") );
+
+            // Guess what happens if the element doesn't exist ?
+
+
+      section.bg-white
+        h1 &#8759; Step #3.1
+        hr/
+        h3 (attach events)
+
+
+      section
+        h1 Events #1
+        hr/
+        ul.ul-packed
+          li blur()        - on blur
+          li change()        - on change event
+          li click()        - on click event
+          li dblclick()    - on double click
+          li focus()        - focus event
+          li focusin()        - focusin event
+          li focusout()    - focusout event
+          li hover()        - hover event
+          li keydown()        - keydown event
+          li keypress()    - on keypress
+          li keyup()       - on keyup
+          li mousedown()    - mousedown event
+
+
+      section
+        h1 Events #2
+        hr/
+        ul.ul-packed
+          li mouseenter()    - mouseenter event
+          li mouseleave()    - mouseleave event
+          li mousemove()    - mousemove event
+          li mouseout()    - mouseout event
+          li mouseover()    - mouseover event
+          li mouseup()    - on mouseup
+          li ready()    - on element loaded
+          li resize()    - on element resize
+          li scroll()    - on scroll
+          li select()    - on select
+          li submit()    - on submit
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="http://api.jquery.com/category/events" target="_blank") api.jquery.com/category/events
+          br/
+          small
+            a(href="http://www.w3schools.com/jquery/jquery_ref_events.asp" target="_blank") www.w3schools.com/jquery/jquery_ref_events.asp
+
+
+      section
+        h1 Events - Examples
+        hr/
+        pre
+          code.language-javascript.
+            $("#id1").click(function(e) {
+              alert("Element clicked!");
+            });
+
+            $("#id2").hover(function(e) {
+              console.log("Element hovered!");
+            });
+
+
+      section.bg-white
+        h1 &#8759; Step #3.2
+        hr/
+        h3 (manipulate directly)
+
+
+      section
+        h1 Manipulate
+        hr/
+        h3 there are functions to :
+        ul
+          li get and set elements
+          li change CSS (colors, sizes, position)
+          li add new elements, or duplicate
+          li delete elements
+          li animate
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="https://api.jquery.com/category/manipulation" target="_blank") api.jquery.com/category/manipulation
+
+
+      section
+        h1 Get & Set elements
+        hr/
+        hr/
+        .content
+          h3 the functions that change content are :
+          ul
+            li $el.empty()
+            li $el.text()
+            li $el.html()
+            li $el.val()
+          br/
+          br/
+          h3 used for reading, or updating values from :
+          ul
+            li paragraphs, text boxes, nr fields, range sliders, radio, or select boxes ;
+
+
+      section
+        h1 Practical exercise
+        hr/
+        h3
+          a(href="https://codepen.io/CrConstantin/pen/qDwCr" target="_blank") codepen.io/CrConstantin/pen/qDwCr
+
+
+      section
+        h1 Change CSS styles
+        hr/
+        hr/
+        .content
+          h3 the functions that change styles are :
+          ul
+            li $el.css()
+            li $el.hasClass()
+            li $el.addClass()
+            li $el.removeClass()
+            li $el.toggleClass()
+          br/
+          br/
+          ul
+            li they should be used with a CSS file :)
+            li almost all jQuery plugins use this to show visual effects
+
+
+      section
+        h1 Practical example
+          hr
+          | . . .
+
+
+      section
+        h1 Effects and animations
+        hr/
+        hr/
+        .content
+          ul
+            li animate allows creating animation effects on any numeric CSS property
+            li can animate: width, height, border, position left or right, border left or right, border size, transparency, font size
+            li functions : animate, hide, show, toggle, fadeIn, fadeOut, fadeToggle, slideUp, slideDown, slideToggle
+          hr/
+          h3 Examples:
+          ul.ul-packed
+            li
+              a(href="https:////codepen.io/CrConstantin/pen/sqmAI" target="_blank") codepen.io/CrConstantin/pen/sqmAI
+              | &nbsp; (animate text)
+            li
+              a(href="https:////codepen.io/CrConstantin/pen/kyfuA" target="_blank") codepen.io/CrConstantin/pen/kyfuA
+              | &nbsp; (shake effect)
+        hr/
+        ref(style="left:auto; right:3rem;")
+          small Refecence: &nbsp;
+          small
+            a(href="https://api.jquery.com/category/effects/" target="_blank") api.jquery.com/category/effects
+          br/
+          small
+            a(href="https://api.jquery.com/animate/" target="_blank") api.jquery.com/animate
+
+
+      section
+        h1 Practical exercise
+        hr
+        h3
+          a(href="https://codepen.io/CrConstantin/pen/KjJyr" target="_blank") codepen.io/CrConstantin/pen/KjJyr
+
+
+      section.bg-white
+        h1 &#8759; Utility
+
+
+      section
+        h1 Utils : $.type
+        hr/
+        h3 Usage
+        pre
+          code.language-javascript.
+            typeof (new Number(1)); // object
+            typeof(new String('a')); // object
+            typeof(new Array(1,2,3)); // object
+            typeof ([1]); // object
+
+            $.type (new Number(1)); // number
+            $.type(new String('a'));  // string
+            $.type(new Array(1,2,3)); // array
+            $.type ([1]); // array
+
+
+      section
+        h1 Utils : $.param()
+        hr/
+        h3 creates a serialized representation of an array, or object
+        pre
+          code.language-javascript.
+            person = new Object();
+            person.firstname = "John";
+            person.lastname = "Doe";
+            person.age = 30;
+            person.smart = true;
+            $.param(person);
+            // firstname=John&lastname=Doe&age=30&smart=true
+
+            $.param({r: [1, 2, 3]});
+            // r%5B%5D=1&r%5B%5D=2&r%5B%5D=3
+
+
+      section
+        h1 Utils : $.data()
+        hr/
+        ul
+          li get / set arbitrary data on a jQuery object
+          li the data is not persistent : will be lost on refresh
+          li can read data-* tags, set via $.attr(), or by a server
+          li the update is on the JS object and is not visible
+          li huge advantage over $.attr() because it's safe from circular refs and therefore from memory leaks
+          li remove data with $el.removeData()
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="https://forum.jquery.com/topic/when-to-use-attr-vs-data" target="_blank") forum.jquery.com/topic/when-to-use-attr-vs-data
+
+
+      section.bg-white
+        h1 &#8759; Advanced
+
+
+      section
+        h2 Ajax (Json-RPC and REST)
+        hr/
+        ul.ul-expanded
+          li $.get   - load any data from a server
+          li $.getJSON - load JSON data from a server
+          li $.getScript - load JS file from a server
+          li $.load  - load data and inject inside an element
+          li $.post  - send data to a server
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="https://api.jquery.com/category/ajax/" target="_blank") api.jquery.com/category/ajax
+          br/
+          small
+            a(href="https://api.jquery.com/category/ajax/shorthand-methods/" target="_blank") api.jquery.com/category/ajax/shorthand-methods
+
+
+      section
+        h1 Ajax - Examples
+        hr/
+        pre
+          code.language-javascript.
+            $.get("https://api.jquery.com/resources/load.html",
+              function(data) {
+                console.log(data);
+            });
+
+            $.post("https://api.jquery.com/",
+              {s: "ajax"},
+              function(data) {
+                console.log(data);
+            });
+        hr/
+        hr/
+        h4 More at :&nbsp;
+          a(href="http://codepen.io/CrConstantin/pen/gspEj" target="_blank") codepen.io/CrConstantin/pen/gspEj
+
+
+      section
+        h1 Promises
+        hr/
+        ul.ul-expanded
+          li a jQuery "promise" is a future response, with a result
+          li can be finished with either : success, or failure
+          li starts in pending and can only be finished once
+          li calls the listeners immediately after being finished ;  if the result was success, the success function is called, else, the failure function is called
+          li all AJAX calls are promises and can be chained !
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="http://htmlgoodies.com/beyond/javascript/making-promises-with-jquery-deferred.html" target="_blank") htmlgoodies.com/beyond/javascript/making-promises-with-jquery-deferred.html
+          br/
+          small
+            a(href="http://making.change.org/post/69613524472/promises-and-error-handling" target="_blank") making.change.org/post/69613524472/promises-and-error-handling
+          br/
+          small
+            a(href="http://www.danieldemmel.me/blog/2013/03/22/an-introduction-to-jquery-deferred-slash-promise" target="_blank") www.danieldemmel.me/blog/2013/03/22/an-introduction-to-jquery-deferred-slash-promise
+
+
+      section
+        h1 Promises - Examples
+        hr/
+        pre
+          code.language-javascript.
+            var promise1 = $.Deferred(); // create a promise
+
+            promise1.done(function() {...});
+            promise1.fail(function() {...});
+            promise1.always(function() {...});
+
+            promise1.resolve();  // success or ...
+            promise1.reject();   // failure
+            promise1.promise();  // read-only pointer
+
+
+      section.bg-white
+        h1 &#8759; UI
+
+
+      section
+        h1 UI : jQuery-UI
+        hr/
+        ul.ul-expanded
+          li on the web : &nbsp;
+            a(href="http://jqueryui.com" target="_blank") jqueryui.com
+          li basic web widgets: accordion, autocomplete, button, datepicker, dialog, menu, progressbar, selectmenu, slider, spinner, tabs, tooltip ;
+          li quite a lot of effects and animations ;
+          li by default, choose from 24 themes and colors ;
+          li includes about 180 png icons ;
+
+
+      section
+        h1 UI : Bootstrap
+        hr/
+        ul.ul-expanded
+          li on the web : &nbsp;
+            a(href="http://getbootstrap.com" target="_blank") getbootstrap.com
+          li lots of widgets, including a responsive grid ;
+          li advantage over jQuery-UI: responsive, mobile first, more elements ;
+          li includes ~ 200 icons in font format (Glyphicons Halflings) and can be extended with 440+ icons (Font Awesome) ;
+
+
+      section.bg-white
+        h1 &#8759; Plugins
+
+
+      section
+        h1 Useful plugins
+        hr/
+        h3 Choose your destiny &nbsp; :)
+        ul.ul-expanded
+          li parsley : form validation library ;
+          li magnific popup : responsive dialog and lightbox ;
+          li chosen : friendly select boxes ;
+          li taggingJS : tagging like a charm ;
+          li dataTables : tables plugin ;
+          li jsTree : trees plugin ;
+        hr/
+        hr/
+        h3 Tell me what you need ...
+
+
+      section
+        h1 Creating a plug-in
+        hr/
+        ul.ul-expanded
+          li a plugin is simply a new method you can create to extend jQuery's prototype object
+          li it's better to create less functions, with many options
+          li when you call jQuery() you're creating a new object, with all jQuery's methods inherited, including your own
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="https://learn.jquery.com/plugins" target="_blank") learn.jquery.com/plugins
+          br/
+          small
+            a(href="https://learn.jquery.com/plugins/basic-plugin-creation" target="_blank") learn.jquery.com/plugins/basic-plugin-creation
+          br/
+          small
+            a(href="http://www.developerdrive.com/2014/10/how-to-create-your-first-jquery-plugin-part-1/" target="_blank") www.developerdrive.com/2014/10/how-to-create-your-first-jquery-plugin-part-1
+
+
+      section
+        h1 Plug-in - Example
+        hr/
+        h3 The simplest example
+        pre
+          code.language-javascript.
+            // Plugin name "addBorder"
+            $.fn.addBorder = function() {
+              this.css("border", "1px solid black");
+              return this;
+            };
+
+            // Usage
+            $(".some-class").addBorder();
+
+
+      section
+        h1 Unit testing
+        hr/
+        p
+          span.txt-cite "In computer programming, unit testing is a software verification and validation method in which a programmer tests if individual units of source code are fit for use. A unit is the smallest testable part of an application. In procedural programming a unit may be an individual function or procedure."
+          span(style="color:#000;") &nbsp; - Wikipedia
+        hr/
+        ul
+          li <b>QUnit</b> is a framework for testing Javascript
+          li used by jQuery, jQuery-UI and jQuery mobile, to test the core
+          li the API is very simple :
+            br/
+            |&nbsp; &nbsp; assert.equal, assert.notEqual, assert.ok, assert.deepEqual
+          li unit testing is fast and easy to repeat for more browsers
+          li QUnit example : &nbsp;
+            a(href="http://codepen.io/CrConstantin/pen/prqbt" target="_blank") //codepen.io/CrConstantin/pen/prqbt
+        hr/
+        ref
+          small Refecence: &nbsp;
+          small
+            a(href="http://qunitjs.com/intro/" target="_blank") qunitjs.com/intro
+          br/
+          small
+            a(href="http://code.tutsplus.com/tutorials/how-to-test-your-javascript-code-with-qunit--net-9077" target="_blank") code.tutsplus.com/tutorials/how-to-test-your-javascript-code-with-qunit--net-9077
+
+
+      section.bg-white
+        h1 &#8759; Organize your code
+
+
+      section
+        h1 Underscore
+        hr/
+        ul.ul-expanded
+          li you can call it `<b>the Javascript tool belt</b>`
+          li provides a lot of useful functional programming helpers without extending any built-in objects
+          li there are approx 80 functions like: map, select, invoke, forEach, map, reduce, filter, every, some, indexOf, wrap, times, memoize, delay, throttle, debounce, random, chain, template
+
+
+      section
+        h1 Backbone
+        p
+          span.txt-cite "Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.
+          span(style="color:#000;") &nbsp; - Backbonejs.org
+        hr/
+        ul
+          li small (60k full, 6.5k minified)
+          li it's more of a concept and less of a library
+          li Backbone depends on jQuery and Underscore
+          li lots of plugins from:  BackPlug.io, BackboneIndex.com
+          li the most useful plugins are Marionette and Stickit
+
+
+      section
+        h1 Backbone - Elements
+        hr/
+        ul
+          li <b>Models</b> represent the data, which can be created, validated, destroyed and saved to the server
+          li the <b>Views</b> that display the model's state are notified of the models change, so that they are able to respond accordingly, re-rendering themselves with the new information
+          li the <b>Router</b> provides methods for connecting client-side hashtags, to actions and events
+          li <b>Collections</b> are ordered sets of models
+
+
+      section
+        h1 Productivity tools
+        hr/
+        h3 everyone wants to work faster and more efficient &nbsp; :)
+        ul.ul-expanded
+          hr/
+          li <b>Codepen</b> - designer playground = HTML, CSS, and JS editor in your browser with instant previews
+          li <b>Jade</b> - high level template language, that compiles into HTML
+          li <b>CoffeeScript</b> - nice language, that compiles into JS
+
+
+      section
+        h1 Javascript Gods
+        hr/
+        h3(style="color:#F26139;") When they talk, we must shut up and listen
+        hr/
+        ul.ul-expanded
+          li John Resig (jQuery, Khan Academy),
+            |&nbsp;
+            a(href="https://plus.google.com/+JohnResig" target="_blank") +JohnResig
+            |,&nbsp;
+            a(href="https://twitter.com/jeresig" target="_blank") @jeresig
+
+          li
+            | Jeremy Ashkenas (backbone, underscore, coffee script), &nbsp;
+            a(href="https://github.com/jashkenas" target="_blank") github.com/jashkenas
+            |,&nbsp;
+            a(href="https://twitter.com/jashkenas" target="_blank") @jashkenas
+
+          li
+            | Derick Bailey (marionette, wreqr, modelbinding), &nbsp;
+            a(href="https://github.com/derickbailey" target="_blank") github.com/derickbailey
+            |,&nbsp;
+            a(href="http://lostechies.com/derickbailey/" target="_blank") lostechies.com/derickbailey
+            |,&nbsp;
+            a(href="https://twitter.com/derickbailey" target="_blank") @derickbailey
+
+          li
+            | Addy Osmani (Chrome, yeoman, polymer, uncss), &nbsp;
+            a(href="https://github.com/addyosmani" target="_blank") github.com/addyosmani
+            |,&nbsp;
+            a(href="https://twitter.com/addyosmani" target="_blank") @addyosmani
+
+          li
+            | Kris Kowal (q, istanbul), &nbsp;
+            a(href="https://github.com/kriskowal" target="_blank") github.com/kriskowal
+            |,&nbsp;
+            a(href="https://twitter.com/kriskowal" target="_blank") @kriskowal
+
+
+      section
+        h1 Recap
+        hr/
+        h3 What you must remember
+        hr/
+        ol.ul-expanded
+          li.bullet wait for the <b>page</b> to be completely <b>loaded</b>, or, if it's already loaded, skip
+          li.bullet <b>select</b> 1 or more elements from the page
+          li.bullet <b>attach</b> events on what you selected, &nbsp; or <b>manipulate</b> the selection directly
+          li.bullet live long and prosper &nbsp; ;)
+
+
+      section
+        h1 Resources
+        hr/
+        ul.ul-expanded
+          li
+            a(href="http://learn.jquery.com/" target="_blank") learn.jquery.com
+            | &nbsp;;
+          li
+            a(href="http://try.jquery.com/" target="_blank") try.jquery.com
+            | &nbsp;;
+          li
+            a(href="http://api.jquery.com/" target="_blank") api.jquery.com
+            | &nbsp;;
+
+
+      section
+        h1 Thank you !
+          hr/
+          | ♥
+
+
+    script
+      include node_modules/bespoke/dist/bespoke.min.js
+    script
+      include node_modules/bespoke-theme-voltaire/dist/bespoke-theme-voltaire.min.js
+    script
+      include node_modules/bespoke-keys/dist/bespoke-keys.min.js
+    script
+      include node_modules/bespoke-bullets/dist/bespoke-bullets.min.js
+    script
+      include node_modules/prismjs/components/prism-core.min.js
+    script
+      include node_modules/prismjs/components/prism-markup.min.js
+    script
+      include node_modules/prismjs/components/prism-clike.min.js
+    script
+      include node_modules/prismjs/components/prism-javascript.min.js
+
+
+    script.
+
+      var deck = bespoke.from("#presentation", [
+        bespoke.themes.voltaire(),
+        bespoke.plugins.keys(),
+        bespoke.plugins.bullets(".bullet")
+      ]);
+
+      var progressParent = document.createElement("div"),
+        progressBar = document.createElement("div"),
+        prop = "width";
+
+      progressParent.className = "bespoke-progress-parent";
+      progressBar.className = "bespoke-progress-bar";
+      progressParent.appendChild(progressBar);
+      deck.parent.appendChild(progressParent);
+
+      deck.on("activate", function(e) {
+        console.log("Open slide `" + e.index + " of " + (deck.slides.length-1) + "`.");
+        progressBar.style[prop] = (e.index * 100 / (deck.slides.length - 1)) + '%';
+        document.getElementById("txt-position").textContent = e.index + " / " + (deck.slides.length-1);
+        localStorage.setItem("#slide", e.index);
+      });
+
+      var slide = localStorage.getItem("#slide");
+      if (slide != null) {
+        console.log("Restore slide `" + slide + "`.")
+        deck.slide(slide);
+      };
+
+
+    style(type="text/css")
+      include static/style.css
+
+    //- Eof

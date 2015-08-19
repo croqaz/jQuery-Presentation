@@ -1,0 +1,4 @@
+
+cleancss -d --s0 static/prism.css static/prez.css -o static/style.css
+
+jade --no-debug prez.jade
