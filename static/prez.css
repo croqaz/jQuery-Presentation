@@ -37,7 +37,7 @@
 	font-size: 14px;
 	font-weight: 900;
 	text-align: center;
-	line-height: 16px;
+	line-height: 18px;
 	font-family: "Open Sans",Helvetica !important;
 	box-shadow: 1px 2px 8px 0px #bbf;
 }
@@ -60,7 +60,6 @@ h1, h2, h3, h4 {
 	font-family: Alegreya,Helvetica !important;
 	text-shadow: 1px 1px 2px #99f;
 	text-redering: optimizeLegibillity;
-	-moz-font-feature-settings: "dlig";
 }
 h1 {
 	color: #033649;
@@ -93,7 +92,6 @@ ref {
 	text-align: left;
 	font-family: Alegreya,Helvetica !important;
 	text-redering: optimizeLegibillity;
-	-moz-font-feature-settings: "dlig";
 	position: absolute;
 	bottom: 2rem;
 	left: 3rem;

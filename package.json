@@ -18,12 +18,12 @@
     "url": "https://github.com/CrConstantin"
   },
   "dependencies": {
-    "bespoke": "^1.0.0",
-    "bespoke-bullets": "^1.1.0",
-    "bespoke-keys": "^1.1.0",
-    "bespoke-theme-voltaire": "^1.0.0",
-    "clean-css": "^3.0",
-    "jade": "^1.0",
-    "prismjs": ""
+    "bespoke": "1.x",
+    "bespoke-bullets": "1.x",
+    "bespoke-keys": "1.x",
+    "bespoke-theme-voltaire": "1.x",
+    "clean-css": "3.x",
+    "prismjs": "",
+    "pug-cli": "1.x"
   }
 }
